@@ -5,34 +5,30 @@ import SongList from './components/SongList';
 class App extends Component {
  state = { songs: [] }
   componentDidMount() {
-    //TODO make a call to our rails server to get Items
+    //TODO make a call to our rails server to get Songs
   }
 
-  addItem = (name) => {
+  addSong = (title) => {
     //TODO make api call to rails server to add item
     //TODO update state
   }
 
-  updateTodo = (id) => {
-    //TODO make api call to update todo
+  updateSong = (id) => {
+    //TODO make api call to update song
     //TODO update state
   }
 
-  deleteTodo = (id) => {
-    //TODO make api call to delete todo
+  deleteSong = (id) => {
+    //TODO make api call to delete song
     //TODO remove it from state
   }
 
   render() {
     return (
-      <div className="container">
-      <TodoForm addItem={this.addItem}>
-      <TodoList
-        todos={this.state.todos}
-        updateTodo={this.updateTodo}
-        deleteTodo={this.deleteTodo}
-      />
-    </div>
+      <div>
+        <SongForm addSong={this.addSong} />
+        <SongList songs={this.state.songs} updateSong={this.updateSong} deleteSong={this.deleteSong} />
+      </div>
     );
   }
 }
