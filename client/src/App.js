@@ -1,19 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SongForm from './components/SongForm';
+import SongList from './components/SongList';
 
 class App extends Component {
+ state = { songs: [] }
+  componentDidMount() {
+    //TODO make a call to our rails server to get Items
+  }
+
+  addItem = (name) => {
+    //TODO make api call to rails server to add item
+    //TODO update state
+  }
+
+  updateTodo = (id) => {
+    //TODO make api call to update todo
+    //TODO update state
+  }
+
+  deleteTodo = (id) => {
+    //TODO make api call to delete todo
+    //TODO remove it from state
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <div className="container">
+      <TodoForm addItem={this.addItem}>
+      <TodoList
+        todos={this.state.todos}
+        updateTodo={this.updateTodo}
+        deleteTodo={this.deleteTodo}
+      />
+    </div>
     );
   }
 }
